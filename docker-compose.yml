@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: erasmus_db
+    restart: always
+    environment:
+      POSTGRES_USER: erasmus
+      POSTGRES_PASSWORD: erasmus
+      POSTGRES_DB: erasmus_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./SQL:/docker-entrypoint-initdb.d

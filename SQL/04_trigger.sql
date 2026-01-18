@@ -26,7 +26,7 @@ RETURNS void
 LANGUAGE plpgsql
 AS $$
 DECLARE
-  i RECORD; -- DEĞİŞKEN TANIMLADIK DÖNGÜ İÇİB
+  i RECORD; -- DEĞİŞKEN TANIMLADIK DÖNGÜ İÇİn
 BEGIN
   FOR i IN (SELECT course_id FROM course) LOOP
     PERFORM refresh_equivalency_for_course(i.course_id);

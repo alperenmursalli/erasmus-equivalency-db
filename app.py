@@ -1,6 +1,6 @@
 import os
 from flask import Flask, jsonify
-import psycopg2
+import psycopg
 
 app = Flask(__name__)
 
@@ -9,7 +9,7 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 def get_conn():
     if not DATABASE_URL:
         raise RuntimeError("DATABASE_URL env var is not set")
-    return psycopg2.connect(DATABASE_URL, sslmode="require")
+    return psycopg.connect(DATABASE_URL, sslmode="require")
 
 @app.get("/health")
 def health():
